@@ -14,5 +14,8 @@
                 }
             ]
         }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
     ]
 }
