@@ -1,0 +1,28 @@
+{
+   "containerDefinitions":[
+      {
+         "portMappings":[
+            {
+               "hostPort":5000,
+               "protocol":"tcp",
+               "containerPort":5000
+            }
+         ],
+         "cpu":1,
+         "image":"%IMAGE_PLACEHOLDER%",
+         "essential":true,
+         "name":"echo-server-flask"
+      }
+   ],
+   "placementConstraints":[
+
+   ],
+   "memory":"512",
+   "family":"echo-server",
+   "requiresCompatibilities":[
+      "FARGATE"
+   ],
+   "networkMode":"awsvpc",
+   "executionRoleArn":"arn:aws:iam::549246567444:role/ecsTaskExecutionRole",
+   "cpu":"256"
+}
