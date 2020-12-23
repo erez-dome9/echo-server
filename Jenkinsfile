@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                git branch: 'app-and-dockerfile',
+                git branch: 'main',
                 url: 'https://github.com/erez-dome9/echo-server.git'
                 sh "ls -lat"
             }
