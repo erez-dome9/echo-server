@@ -16,7 +16,7 @@ def hello_world():
 
     if request.method == 'GET':
 
-        return "Hello World"
+        return "Hello World v2"
 
 
 if __name__ == "__main__":
