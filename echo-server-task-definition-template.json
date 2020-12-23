@@ -1,21 +1,73 @@
 {
-    "family": "echo-server",
-    "containerDefinitions": [
-        {
-            "image": "%IMAGE_PLACEHOLDER%",
-            "name": "echo-server-flask",
-            "cpu": 1,
-            "memory": 256,
-            "essential": true,
-            "portMappings": [
-                {
-                    "containerPort": 5000,
-                    "hostPort": 5000
-                }
-            ]
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": null,
+      "environmentFiles": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/echo-server",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
         }
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ]
+      },
+      "entryPoint": null,
+      "portMappings": [
+        {
+          "hostPort": 5000,
+          "protocol": "tcp",
+          "containerPort": 5000
+        }
+      ],
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 0,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": null,
+      "memory": null,
+      "memoryReservation": null,
+      "volumesFrom": [],
+      "stopTimeout": null,
+      "image": "%IMAGE_PLACEHOLDER%",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
+      "name": "echo-server-flask"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": "512",
+  "taskRoleArn": null,
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "family": "echo-server",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "revision": 2,
+  "status": "ACTIVE",
 }
