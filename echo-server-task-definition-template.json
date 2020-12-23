@@ -1,0 +1,18 @@
+{
+    "family": "echo-server",
+    "containerDefinitions": [
+        {
+            "image": "%IMAGE_PLACEHOLDER%",
+            "name": "echo-server-flask",
+            "cpu": 1,
+            "memory": 256,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 5000
+                }
+            ]
+        }
+    ]
+}
