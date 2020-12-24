@@ -3,15 +3,18 @@ pipeline {
         string(name: 'region', defaultValue: 'us-east-1', description: 'AWS region')
         string(name: 'ecr_registry', description: 'AWS ECR registry. i.g 1234567789.dkr.ecr.us-east-1.amazonaws.com/my-repo')
         string(name: 'branch', defaultValue: 'main', description: 'Source code branch')
+        string(name: 'cluster_name', defaultValue: 'echo-server', description: 'Source code branch')
+        string(name: 'service_name', defaultValue: 'echo-server-service', description: 'Source code branch')
+        string(name: 'task_definition', defaultValue: 'echo-server', description: 'Source code branch')
     }
     environment {
         region = 'us-east-1'
         registry = '${ecr_registry}'
         ECRURL = 'https://${ecr_registry}'
         ECRCRED = 'ecr:us-east-1:echo-server'
-        CLUSTER_NAME="echo-server"
-        SERVICE_NAME="echo-server-service"
-        TASK_FAMILY="echo-server"
+        CLUSTER_NAME='${cluster_name}'
+        SERVICE_NAME='${service_name}'
+        TASK_FAMILY='${task_definition}'
     }
     agent any
     stages {
