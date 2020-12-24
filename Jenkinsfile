@@ -8,6 +8,9 @@ pipeline {
         registry = '${ecr_registry}'
         ECRURL = 'https://${ecr_registry}'
         ECRCRED = 'ecr:us-east-1:echo-server'
+        CLUSTER_NAME="echo-server"
+        SERVICE_NAME="echo-server-service"
+        TASK_FAMILY="echo-server"
     }
     agent any
     stages {
@@ -43,7 +46,7 @@ pipeline {
         stage('Deploy to ECS') {
             steps{
                 withAWS(credentials: 'echo-server', region: 'us-east-1') {
-                    sh "./ecs-deployer.sh"
+                    sh "./ecs-deployer.sh $CLUSTER_NAME $SERVICE_NAME $TASK_FAMILY $registry"
                 }
             }
         }
