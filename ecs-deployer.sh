@@ -1,10 +1,11 @@
 #!/bin/bash
-CLUSTER_NAME="echo-server"
-SERVICE_NAME="echo-server-service"
-TASK_FAMILY="echo-server"
+CLUSTER_NAME="$1"
+SERVICE_NAME="$2"
+TASK_FAMILY="$3"
+REGISTRY="$4"
 
 # Create a new task definition for this build
-sed -e "s;%IMAGE_PLACEHOLDER%;${registry}:latest;g" echo-server-task-definition-template.json > echo-server-task-definition.json
+sed -e "s;%IMAGE_PLACEHOLDER%;${REGISTRY}:latest;g" echo-server-task-definition-template.json > echo-server-task-definition.json
 aws ecs register-task-definition --family echo-server --cli-input-json file://echo-server-task-definition.json --region ${region}
 
 # Update the service with the new task definition and desired count
