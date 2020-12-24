@@ -6,7 +6,10 @@ AWS prerequisites:
     * IAM Policy - use the following policy document `required-policy-for-jenkins-user.json`. Attach this policy to jenkins user.
     * Create AWS credentials for that user (AWS_ACCESS_ID, AWS_SECRET)
 * ECR
-* ECS: cluster, service
+* ECS *Fargate* (use the following naming): 
+    * Cluster (`echo-server`)
+    * Service (`echo-server-service`)
+    * Task Definition (`echo-server`)
 * ALB
 
 Notes: 
@@ -14,6 +17,9 @@ Notes:
 * No need to configure targets for ALB target group. ECS service setup automatically register the targets.
 
 Jenkins setup:
+* local setup:
+    * Docker engine running
+    * aws-cli installed
 * required plugins:
     * Amazon ECR plugin
     * CloudBees AWS Credentials Plugin
