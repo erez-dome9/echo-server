@@ -50,7 +50,7 @@ pipeline {
         stage('Deploy to ECS') {
             steps{
                 withAWS(credentials: 'echo-server', region: 'us-east-1') {
-                    sh "./ecs-deployer.sh $CLUSTER_NAME $SERVICE_NAME $TASK_FAMILY $registry"
+                    sh "./ecs-deployer.sh $CLUSTER_NAME $SERVICE_NAME $TASK_FAMILY $ecr_registry"
                 }
             }
         }
