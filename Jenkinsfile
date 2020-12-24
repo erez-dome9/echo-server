@@ -2,6 +2,7 @@ pipeline {
     parameters {
         string(name: 'region', defaultValue: 'us-east-1', description: 'AWS region')
         string(name: 'ecr_registry', description: 'AWS ECR registry. i.g 1234567789.dkr.ecr.us-east-1.amazonaws.com/my-repo')
+        string(name: 'branch', defaultValue: 'main', description: 'Source code branch')
     }
     environment {
         region = 'us-east-1'
@@ -16,7 +17,7 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                git branch: 'main',
+                git branch: '${branch}',
                 url: 'https://github.com/erez-dome9/echo-server.git'
                 sh "ls -lat"
             }
